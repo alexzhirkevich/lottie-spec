@@ -2396,7 +2396,7 @@ so instead of scalars keyframes have arrays with a single values.</p>
 <p>In Point</p>
 </td>
 <td>
-<p>Frame the animation starts at (usually 0)</p>
+<p>Frame the animation starts at (inclusive; usually 0)</p>
 </td>
 </tr>
 <tr>
@@ -2406,7 +2406,7 @@ so instead of scalars keyframes have arrays with a single values.</p>
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame the animation stops/loops at, which makes this the duration in frames when <code>ip</code> is 0</p>
+<p>Frame the animation stops/loops at (exclusive). The frame at <code>op</code> is NOT rendered; the animation duration in frames is <code>op - ip</code>.</p>
 </td>
 </tr>
 <tr>
@@ -2472,6 +2472,16 @@ so instead of scalars keyframes have arrays with a single values.</p>
 </tbody>
 </table>
 </div>
+<h3 id="specs-composition-time-and-duration">Time and Duration</h3>
+<p>The animation's playable frame range is defined by <code>ip</code> (In Point, inclusive)
+and <code>op</code> (Out Point, exclusive). The frame at <code>op</code> is NOT rendered; the
+animation loops or stops at that boundary.</p>
+<p>The total duration in frames is <code>op - ip</code>, and the duration in seconds is
+<code>(op - ip) / fr</code>.</p>
+<p>Implementations <strong class="bcp14">MUST</strong> treat <code>op</code> as an exclusive boundary. <code>op</code> <strong class="bcp14">MUST</strong> be
+strictly greater than <code>ip</code>.</p>
+<p>Example: <code>ip: 0</code>, <code>op: 30</code>, <code>fr: 30</code> defines a 30-frame, 1-second animation
+playing frames <code>0..29</code>.</p>
 <h3 id="specs-composition-versioning-guidelines">Versioning Guidelines</h3>
 <p>The Lottie specification version number uses a semantic versioning system,
 tools implementing the specification <strong class="bcp14">SHOULD</strong> consider the following
@@ -2844,7 +2854,7 @@ itself, such as the authoring tool, author name, and keywords.</p>
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -2854,7 +2864,7 @@ itself, such as the authoring tool, author name, and keywords.</p>
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 </tbody>
@@ -2893,6 +2903,12 @@ itself, such as the authoring tool, author name, and keywords.</p>
 </tbody>
 </table>
 </p>
+<h4 id="specs-layers-visibility-range">Visibility Range</h4>
+<p>A layer is visible on frame <code>t</code> when <code>ip &lt;= t &lt; op</code>. The <code>ip</code> (In Point) boundary is
+inclusive, and the <code>op</code> (Out Point) boundary is exclusive — the frame at <code>op</code> is NOT
+rendered. This matches the Animation-level <a href="#specs-composition-animation"><code>ip</code>/<code>op</code></a>
+semantics.</p>
+<p><code>op</code> <strong class="bcp14">MUST NOT</strong> be less than <code>ip</code>.</p>
 <h3 id="specs-layers-visual-layer">Visual Layer</h3>
 <p></p>
 <p><span>Layer used to affect visual elements</span></p>
@@ -3083,7 +3099,7 @@ itself, such as the authoring tool, author name, and keywords.</p>
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -3093,7 +3109,7 @@ itself, such as the authoring tool, author name, and keywords.</p>
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -3364,7 +3380,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -3374,7 +3390,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -3580,7 +3596,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -3590,7 +3606,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -3796,7 +3812,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -3806,7 +3822,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -4002,7 +4018,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -4012,7 +4028,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -4238,7 +4254,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -4248,7 +4264,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -4421,9 +4437,9 @@ decrease it ("stretching" the layer timeline).</p>
 <p>The <code>tm</code> property specifies a time remap function as an animatable property, allowing full control
 over the precomp timeline (subset, speedup/slowdown, reverse, frame-freeze, or any other arbitrary
 transformation).</p>
-<p>It maps the current layer time (in the frame index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">[</mo><mi>i</mi><mi>p</mi><mi>&#x02026;</mi><mi>o</mi><mi>p</mi><mo stretchy="false">]</mo></mrow></math> domain) to a precomp time
+<p>It maps the current layer time (in the half-open frame index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">[</mo><mi>i</mi><mi>p</mi><mo>&#x0002C;</mo><mi>o</mi><mi>p</mi><mo stretchy="false">&#x00029;</mo></mrow></math> domain) to a precomp time
 expressed in seconds, and evaluates all animatable precomp properties based on the new time value:</p>
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>m</mi><mi>&#x0003A;</mi><mrow><mo fence="true" form="prefix" stretchy="true">[</mo><mi>i</mi><mi>p</mi><mi>&#x02026;</mi><mi>o</mi><mi>p</mi><mo fence="true" form="postfix" stretchy="true">]</mo></mrow><mo>&#x021A6;</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>s</mi></mrow></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>m</mi><mi>&#x0003A;</mi><mrow><mo fence="true" form="prefix" stretchy="true">[</mo><mi>i</mi><mi>p</mi><mo>&#x0002C;</mo><mi>o</mi><mi>p</mi><mo fence="true" form="postfix" stretchy="true">&#x00029;</mo></mrow><mo>&#x021A6;</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>s</mi></mrow></math>
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>&#x02032;</mi><mo>&#x0003D;</mo><mi>t</mi><mi>m</mi><mo stretchy="false">&#x00028;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mi>&#x000B7;</mi><mi>F</mi><mi>P</mi><mi>S</mi></mrow></math>
 <p>Note: the global frame rate factor <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>F</mi><mi>P</mi><mi>S</mi></mrow></math> (<a href="#specs-composition-Animation">Animation</a> <code>fr</code> property) is
 required to convert back into the frame index domain.</p>
@@ -11400,13 +11416,14 @@ values to jump to the relevant section.</p>
                             },
                             <span class="hljs-attr">"ip"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"In Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation starts at (usually 0)"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation starts at (inclusive; usually 0)"</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             },
                             <span class="hljs-attr">"op"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Out Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation stops/loops at, which makes this the duration in frames when <code>ip</code> is 0"</span>,
-                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation stops/loops at (exclusive). The frame at <code>op</code> is NOT rendered; the animation duration in frames is <code>op - ip</code>."</span>,
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>,
+                                <span class="hljs-attr">"exclusiveMinimum"</span>: <span class="hljs-number">0</span>
                             },
                             <span class="hljs-attr">"w"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Width"</span>,
@@ -12097,12 +12114,12 @@ values to jump to the relevant section.</p>
                             },
                             <span class="hljs-attr">"ip"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"In Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes visible"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes visible (inclusive)."</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             },
                             <span class="hljs-attr">"op"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Out Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes invisible"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>."</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             }
                         },

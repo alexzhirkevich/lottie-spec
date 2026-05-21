@@ -281,6 +281,7 @@
         <li class="first-level active"><a href="#composition_1">Composition</a></li>
             <li class="second-level"><a href="#animation">Animation</a></li>
                 
+                <li class="third-level"><a href="#time-and-duration">Time and Duration</a></li>
                 <li class="third-level"><a href="#versioning-guidelines">Versioning Guidelines</a></li>
             <li class="second-level"><a href="#metadata">Metadata</a></li>
                 
@@ -396,7 +397,7 @@
 <p>In Point</p>
 </td>
 <td>
-<p>Frame the animation starts at (usually 0)</p>
+<p>Frame the animation starts at (inclusive; usually 0)</p>
 </td>
 </tr>
 <tr>
@@ -406,7 +407,7 @@
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame the animation stops/loops at, which makes this the duration in frames when <code>ip</code> is 0</p>
+<p>Frame the animation stops/loops at (exclusive). The frame at <code>op</code> is NOT rendered; the animation duration in frames is <code>op - ip</code>.</p>
 </td>
 </tr>
 <tr>
@@ -472,6 +473,16 @@
 </tbody>
 </table>
 </div>
+<h3 id="time-and-duration">Time and Duration</h3>
+<p>The animation's playable frame range is defined by <code>ip</code> (In Point, inclusive)
+and <code>op</code> (Out Point, exclusive). The frame at <code>op</code> is NOT rendered; the
+animation loops or stops at that boundary.</p>
+<p>The total duration in frames is <code>op - ip</code>, and the duration in seconds is
+<code>(op - ip) / fr</code>.</p>
+<p>Implementations <strong class="bcp14">MUST</strong> treat <code>op</code> as an exclusive boundary. <code>op</code> <strong class="bcp14">MUST</strong> be
+strictly greater than <code>ip</code>.</p>
+<p>Example: <code>ip: 0</code>, <code>op: 30</code>, <code>fr: 30</code> defines a 30-frame, 1-second animation
+playing frames <code>0..29</code>.</p>
 <h3 id="versioning-guidelines">Versioning Guidelines</h3>
 <p>The Lottie specification version number uses a semantic versioning system,
 tools implementing the specification <strong class="bcp14">SHOULD</strong> consider the following

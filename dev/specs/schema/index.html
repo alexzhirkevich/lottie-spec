@@ -456,13 +456,14 @@ values to jump to the relevant section.</p>
                             },
                             <span class="hljs-attr">"ip"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"In Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation starts at (usually 0)"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation starts at (inclusive; usually 0)"</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             },
                             <span class="hljs-attr">"op"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Out Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation stops/loops at, which makes this the duration in frames when <code>ip</code> is 0"</span>,
-                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame the animation stops/loops at (exclusive). The frame at <code>op</code> is NOT rendered; the animation duration in frames is <code>op - ip</code>."</span>,
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>,
+                                <span class="hljs-attr">"exclusiveMinimum"</span>: <span class="hljs-number">0</span>
                             },
                             <span class="hljs-attr">"w"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Width"</span>,
@@ -1153,12 +1154,12 @@ values to jump to the relevant section.</p>
                             },
                             <span class="hljs-attr">"ip"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"In Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes visible"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes visible (inclusive)."</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             },
                             <span class="hljs-attr">"op"</span>: {
                                 <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Out Point"</span>,
-                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes invisible"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>."</span>,
                                 <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
                             }
                         },

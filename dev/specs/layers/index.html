@@ -486,7 +486,7 @@
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -496,7 +496,7 @@
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 </tbody>
@@ -535,6 +535,12 @@
 </tbody>
 </table>
 </p>
+<h4 id="visibility-range">Visibility Range</h4>
+<p>A layer is visible on frame <code>t</code> when <code>ip &lt;= t &lt; op</code>. The <code>ip</code> (In Point) boundary is
+inclusive, and the <code>op</code> (Out Point) boundary is exclusive — the frame at <code>op</code> is NOT
+rendered. This matches the Animation-level <a href="../composition/#animation"><code>ip</code>/<code>op</code></a>
+semantics.</p>
+<p><code>op</code> <strong class="bcp14">MUST NOT</strong> be less than <code>ip</code>.</p>
 <h3 id="visual-layer">Visual Layer</h3>
 <p></p>
 <p><span>Layer used to affect visual elements</span></p>
@@ -725,7 +731,7 @@
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -735,7 +741,7 @@
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -1006,7 +1012,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -1016,7 +1022,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -1222,7 +1228,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -1232,7 +1238,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -1438,7 +1444,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -1448,7 +1454,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -1644,7 +1650,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -1654,7 +1660,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -1880,7 +1886,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>In Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes visible</p>
+<p>Frame when the layer becomes visible (inclusive).</p>
 </td>
 </tr>
 <tr>
@@ -1890,7 +1896,7 @@ The layer being masked is indicated by the <code>tp</code> attribute, which has 
 <p>Out Point</p>
 </td>
 <td>
-<p>Frame when the layer becomes invisible</p>
+<p>Frame when the layer becomes invisible (exclusive). The layer is visible while <code>ip &lt;= t &lt; op</code>.</p>
 </td>
 </tr>
 <tr>
@@ -2063,9 +2069,9 @@ decrease it ("stretching" the layer timeline).</p>
 <p>The <code>tm</code> property specifies a time remap function as an animatable property, allowing full control
 over the precomp timeline (subset, speedup/slowdown, reverse, frame-freeze, or any other arbitrary
 transformation).</p>
-<p>It maps the current layer time (in the frame index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">[</mo><mi>i</mi><mi>p</mi><mi>&#x02026;</mi><mi>o</mi><mi>p</mi><mo stretchy="false">]</mo></mrow></math> domain) to a precomp time
+<p>It maps the current layer time (in the half-open frame index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo stretchy="false">[</mo><mi>i</mi><mi>p</mi><mo>&#x0002C;</mo><mi>o</mi><mi>p</mi><mo stretchy="false">&#x00029;</mo></mrow></math> domain) to a precomp time
 expressed in seconds, and evaluates all animatable precomp properties based on the new time value:</p>
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>m</mi><mi>&#x0003A;</mi><mrow><mo fence="true" form="prefix" stretchy="true">[</mo><mi>i</mi><mi>p</mi><mi>&#x02026;</mi><mi>o</mi><mi>p</mi><mo fence="true" form="postfix" stretchy="true">]</mo></mrow><mo>&#x021A6;</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>s</mi></mrow></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>m</mi><mi>&#x0003A;</mi><mrow><mo fence="true" form="prefix" stretchy="true">[</mo><mi>i</mi><mi>p</mi><mo>&#x0002C;</mo><mi>o</mi><mi>p</mi><mo fence="true" form="postfix" stretchy="true">&#x00029;</mo></mrow><mo>&#x021A6;</mo><mi>s</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>d</mi><mi>s</mi></mrow></math>
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi><mi>&#x02032;</mi><mo>&#x0003D;</mo><mi>t</mi><mi>m</mi><mo stretchy="false">&#x00028;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mi>&#x000B7;</mi><mi>F</mi><mi>P</mi><mi>S</mi></mrow></math>
 <p>Note: the global frame rate factor <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>F</mi><mi>P</mi><mi>S</mi></mrow></math> (<a href="../composition/#Animation">Animation</a> <code>fr</code> property) is
 required to convert back into the frame index domain.</p>
