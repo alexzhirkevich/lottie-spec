@@ -282,6 +282,8 @@
             <li class="second-level"><a href="#animation">Animation</a></li>
                 
                 <li class="third-level"><a href="#versioning-guidelines">Versioning Guidelines</a></li>
+            <li class="second-level"><a href="#metadata">Metadata</a></li>
+                
             <li class="second-level"><a href="#composition">Composition</a></li>
                 
     </ul>
@@ -457,6 +459,16 @@
 <p>Dictionary of slot ids that will replace matching properties.</p>
 </td>
 </tr>
+<tr>
+<td><code>meta</code></td>
+<td><a href="../helpers/#metadata">Metadata</a></td>
+<td>
+<p>Metadata</p>
+</td>
+<td>
+<p>Metadata about the animation</p>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -488,6 +500,88 @@ specification and <strong class="bcp14">SHOULD</strong> issue a warning if:</p>
 <li>The animation specifies a newer minor version.</li>
 <li>No warning needed if the specified patch version is different.</li>
 </ul>
+<h2 id="metadata">Metadata</h2>
+<p></p>
+<p>The <code>meta</code> property provides a place to store information about the animation
+itself, such as the authoring tool, author name, and keywords.</p>
+<div>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Title</th>
+<th>Description <a class="schema-link" href="../schema/#/$defs/helpers/metadata" title="View Schema"><i class="fas fa-file-code"></i></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g</code></td>
+<td><code>string</code></td>
+<td>
+<p>Generator</p>
+</td>
+<td>
+<p>Name and version of the software that generated this animation</p>
+</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td><code>string</code></td>
+<td>
+<p>Author</p>
+</td>
+<td>
+<p>Author of the animation</p>
+</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td><code>string</code></td>
+<td>
+<p>Description</p>
+</td>
+<td>
+<p>Human-readable description of the animation</p>
+</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td><code>array</code> of <code>string</code></td>
+<td>
+<p>Keywords</p>
+</td>
+<td>
+<p>List of keywords relevant to the animation content</p>
+</td>
+</tr>
+<tr>
+<td><code>custom</code></td>
+<td><code>object</code></td>
+<td>
+<p>Custom Metadata</p>
+</td>
+<td>
+<p>Object where authors can store any custom data. The contents of this property are not validated by the schema.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example:</p>
+<pre><code class="language-json">{
+    &quot;meta&quot;: {
+        &quot;g&quot;: &quot;MyTool 1.0&quot;,
+        &quot;a&quot;: &quot;Aidos S&quot;,
+        &quot;d&quot;: &quot;Loading spinner animation&quot;,
+        &quot;k&quot;: [&quot;spinner&quot;, &quot;loading&quot;, &quot;ui&quot;],
+        &quot;custom&quot;: {
+            &quot;project_id&quot;: &quot;abc-123&quot;,
+            &quot;exported_at&quot;: &quot;2025-01-15T10:30:00Z&quot;
+        }
+    }
+}
+</code></pre>
 <h2 id="composition">Composition</h2>
 <p></p>
 <p><span>An object that contains a list of layers</span></p>
