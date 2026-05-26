@@ -690,8 +690,11 @@ length created by concatenating each shape.
 
 {schema_object:shapes/rounded-corners}
 
-This modifier looks at the underlying shape, at each vertex it checks if the 
-tangents at that vertex have zero length. If both have zero length, the initial 
+This modifier looks at the underlying shape, at each vertex it checks if the two
+segments before and after the vertex are linear. A segment is linear if the
+tangents are lay on the line between the two vertices. Implementations MUST
+take into account floating point inaccuracies when making this determination.
+If both bezier segmets around the vertex are linear, the initial
 vertex is replaced by two vertices `r` distance away from the original along
 the corresponding segment. These new vertices MUST merge with existing vertices
 if the line segments are shorter than the `r` distance. 
@@ -711,11 +714,11 @@ where the line segment is shorter than `r`.
 
 <lottie-playground example="rounded_corners.json">
     <form>
-        <input title="Radius" type="range" min="0" value="50" max="100"/>
+        <input title="Roundness" type="range" min="0" value="50" max="100"/>
     </form>
     <json>lottie.layers[0].shapes[0].it[1]</json>
     <script>
-    lottie.layers[0].shapes[0].it[1].r.k = data["Radius"];
+    lottie.layers[0].shapes[0].it[1].r.k = data["Roundness"];
     </script>
 </lottie-playground>
 

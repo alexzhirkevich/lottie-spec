@@ -16,7 +16,7 @@
                     "const": "rd"
                 },
                 "r": {
-                    "title": "Radius",
+                    "title": "Roundness",
                     "$ref": "#/$defs/properties/scalar-property"
                 }
             },
