@@ -308,6 +308,7 @@
             <li class="second-level"><a href="#modifier">Modifiers</a></li>
                 
                 <li class="third-level"><a href="#trim-path">Trim Path</a></li>
+                <li class="third-level"><a href="#rounded-corners">Rounded Corners</a></li>
                 <li class="third-level"><a href="#pucker-bloat">Pucker / Bloat</a></li>
     </ul>
 </div></div>
@@ -414,7 +415,7 @@ but implementations of Trim Path <strong class="bcp14">MUST</strong> follow the 
 </ul>
 <h3 id="approximating-ellipses-with-cubic-bezier">Approximating Ellipses with Cubic Bezier</h3>
 <p>An elliptical quadrant can be approximated by a cubic bezier segment
-with tangents of length $radius * E_t.</p>
+with tangents of length <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>r</mi><mi>a</mi><mi>d</mi><mi>i</mi><mi>u</mi><mi>s</mi><mo>&#x0002A;</mo><msub><mi>E</mi><mi>t</mi></msub></mrow></math>.</p>
 <p>Where</p>
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>E</mi><mi>t</mi></msub><mo>&#x02248;</mo><mn>0.5519150244935105707435627</mn></mrow></math>
 <p>See <a href="https://spencermortensen.com/articles/bezier-circle/">this article</a> for the math behind it.</p>
@@ -426,255 +427,270 @@ use this constant, a similar approximation, or elliptical arc drawing primitives
 <div>
 <details>
 <summary>Composition Diagram for Graphic Element</summary>
-<svg _xmlns="http://www.w3.org/2000/svg" height="530pt" viewBox="0.00 0.00 441.00 530.00" width="441pt">
-<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 526)">
+<svg _xmlns="http://www.w3.org/2000/svg" height="584pt" viewBox="0.00 0.00 450.00 584.00" width="450pt">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 580)">
 
-<polygon fill="white" points="-4,4 -4,-526 437,-526 437,4 -4,4" stroke="transparent"></polygon>
+<polygon fill="white" points="-4,4 -4,-580 446,-580 446,4 -4,4" stroke="transparent"></polygon>
 
 <g class="node current" id="node1">
 
-<polygon fill="none" points="330,-306 243,-306 243,-270 330,-270 330,-306" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="286.5" y="-285.5">Graphic Element</text>
+<polygon fill="none" points="339,-414 252,-414 252,-378 339,-378 339,-414" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="295.5" y="-393.5">Graphic Element</text>
 </g>
 
 <g class="node" id="node2">
 
 <g id="a_node2"><a href="../helpers/#visual-object" title="Visual Object">
-<polygon fill="none" points="433,-306 366,-306 366,-270 433,-270 433,-306" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="399.5" y="-285.5">Visual Object</text>
+<polygon fill="none" points="442,-414 375,-414 375,-378 442,-378 442,-414" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="408.5" y="-393.5">Visual Object</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge1">
 
-<path d="M330.1,-288C338.53,-288 347.38,-288 355.82,-288" fill="none" stroke="black"></path>
-<polygon fill="none" points="355.84,-291.5 365.84,-288 355.84,-284.5 355.84,-291.5" stroke="black"></polygon>
+<path d="M339.1,-396C347.53,-396 356.38,-396 364.82,-396" fill="none" stroke="black"></path>
+<polygon fill="none" points="364.84,-399.5 374.84,-396 364.84,-392.5 364.84,-399.5" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node3">
 
-<g id="a_node3"><a href="./#group" title="Group">
-<polygon fill="none" points="189.5,-441 135.5,-441 135.5,-405 189.5,-405 189.5,-441" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="162.5" y="-420.5">Group</text>
+<g id="a_node3"><a href="./#transform" title="Transform Shape">
+<polygon fill="none" points="216,-522 127,-522 127,-486 216,-486 216,-522" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="171.5" y="-501.5">Transform Shape</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge2">
 
-<path d="M189.53,-409.13C195.59,-405.29 201.79,-400.84 207,-396 232.93,-371.9 255.86,-338.11 270.14,-314.78" fill="none" stroke="black"></path>
-<polygon fill="none" points="273.21,-316.46 275.36,-306.09 267.21,-312.86 273.21,-316.46" stroke="black"></polygon>
+<path d="M204.03,-485.72C208.17,-482.95 212.26,-480.01 216,-477 236.57,-460.42 257.27,-438.82 272.24,-422.09" fill="none" stroke="black"></path>
+<polygon fill="none" points="275.11,-424.13 279.1,-414.32 269.86,-419.5 275.11,-424.13" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node4">
 
-<g id="a_node4"><a href="./#shape" title="Shape">
-<polygon fill="none" points="189.5,-387 135.5,-387 135.5,-351 189.5,-351 189.5,-387" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="162.5" y="-366.5">Shape</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge7">
-
-<path d="M189.67,-351.62C207.16,-340.01 230.39,-324.59 249.59,-311.84" fill="none" stroke="black"></path>
-<polygon fill="none" points="251.71,-314.64 258.1,-306.19 247.83,-308.81 251.71,-314.64" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node5">
-
-<g id="a_node5"><a href="./#rectangle" title="Rectangle">
-<polygon fill="none" points="68,-522 14,-522 14,-486 68,-486 68,-522" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-501.5">Rectangle</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge3">
-
-<path d="M68.28,-489.37C73.27,-485.78 78.12,-481.62 82,-477 107.31,-446.81 92.12,-425.7 118,-396 120.62,-392.99 123.65,-390.21 126.88,-387.67" fill="none" stroke="black"></path>
-<polygon fill="none" points="129,-390.46 135.17,-381.85 124.97,-384.73 129,-390.46" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node6">
-
-<g id="a_node6"><a href="./#polystar" title="PolyStar">
-<polygon fill="none" points="68,-468 14,-468 14,-432 68,-432 68,-468" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-447.5">PolyStar</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge4">
-
-<path d="M68.38,-432.47C72.95,-429.35 77.63,-426.11 82,-423 98.29,-411.4 101.49,-407.28 118,-396 120.88,-394.03 123.89,-392.04 126.93,-390.07" fill="none" stroke="black"></path>
-<polygon fill="none" points="128.94,-392.94 135.5,-384.62 125.18,-387.03 128.94,-392.94" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node7">
-
-<g id="a_node7"><a href="./#ellipse" title="Ellipse">
-<polygon fill="none" points="68,-414 14,-414 14,-378 68,-378 68,-414" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-393.5">Ellipse</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge5">
-
-<path d="M68.22,-390.07C85.04,-386.28 107.08,-381.3 125.52,-377.13" fill="none" stroke="black"></path>
-<polygon fill="none" points="126.35,-380.53 135.34,-374.91 124.81,-373.7 126.35,-380.53" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node8">
-
-<g id="a_node8"><a href="./#path" title="Path">
-<polygon fill="none" points="68,-360 14,-360 14,-324 68,-324 68,-360" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-339.5">Path</text>
+<g id="a_node4"><a href="./#modifier" title="Modifier">
+<polygon fill="none" points="198.5,-468 144.5,-468 144.5,-432 198.5,-432 198.5,-468" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="171.5" y="-447.5">Modifier</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge6">
 
-<path d="M68.22,-347.93C85.04,-351.72 107.08,-356.7 125.52,-360.87" fill="none" stroke="black"></path>
-<polygon fill="none" points="124.81,-364.3 135.34,-363.09 126.35,-357.47 124.81,-364.3" stroke="black"></polygon>
+<path d="M198.67,-438.42C211.89,-432.56 228.39,-425.26 243.96,-418.37" fill="none" stroke="black"></path>
+<polygon fill="none" points="245.76,-421.4 253.49,-414.15 242.93,-415 245.76,-421.4" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node5">
+
+<g id="a_node5"><a href="./#rounded-corners" title="Rounded Corners">
+<polygon fill="none" points="91,-576 0,-576 0,-540 91,-540 91,-576" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-555.5">Rounded Corners</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge3">
+
+<path d="M80.23,-539.76C84.05,-537.06 87.74,-534.13 91,-531 111.83,-511.04 106.28,-497.06 127,-477 129.71,-474.37 132.73,-471.87 135.86,-469.53" fill="none" stroke="black"></path>
+<polygon fill="none" points="138.06,-472.27 144.33,-463.72 134.11,-466.49 138.06,-472.27" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node6">
+
+<g id="a_node6"><a href="./#trim-path" title="Trim Path">
+<polygon fill="none" points="72.5,-522 18.5,-522 18.5,-486 72.5,-486 72.5,-522" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-501.5">Trim Path</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge4">
+
+<path d="M72.8,-492.55C90.88,-484.67 115.11,-474.12 134.92,-465.49" fill="none" stroke="black"></path>
+<polygon fill="none" points="136.47,-468.64 144.24,-461.44 133.67,-462.22 136.47,-468.64" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node7">
+
+<g id="a_node7"><a href="./#pucker-bloat" title="Pucker Bloat">
+<polygon fill="none" points="78,-468 13,-468 13,-432 78,-432 78,-468" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-447.5">Pucker Bloat</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge5">
+
+<path d="M78.11,-450C95.27,-450 116.54,-450 134.36,-450" fill="none" stroke="black"></path>
+<polygon fill="none" points="134.38,-453.5 144.38,-450 134.38,-446.5 134.38,-453.5" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node8">
+
+<g id="a_node8"><a href="./#group" title="Group">
+<polygon fill="none" points="198.5,-414 144.5,-414 144.5,-378 198.5,-378 198.5,-414" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="171.5" y="-393.5">Group</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge7">
+
+<path d="M198.67,-396C211.19,-396 226.64,-396 241.46,-396" fill="none" stroke="black"></path>
+<polygon fill="none" points="241.58,-399.5 251.58,-396 241.58,-392.5 241.58,-399.5" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node9">
 
-<g id="a_node9"><a href="./#modifier" title="Modifier">
-<polygon fill="none" points="189.5,-306 135.5,-306 135.5,-270 189.5,-270 189.5,-306" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="162.5" y="-285.5">Modifier</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge10">
-
-<path d="M189.67,-288C202.19,-288 217.64,-288 232.46,-288" fill="none" stroke="black"></path>
-<polygon fill="none" points="232.58,-291.5 242.58,-288 232.58,-284.5 232.58,-291.5" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node10">
-
-<g id="a_node10"><a href="./#pucker-bloat" title="Pucker Bloat">
-<polygon fill="none" points="73.5,-306 8.5,-306 8.5,-270 73.5,-270 73.5,-306" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-285.5">Pucker Bloat</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge8">
-
-<path d="M73.71,-288C89.48,-288 108.62,-288 124.99,-288" fill="none" stroke="black"></path>
-<polygon fill="none" points="125.29,-291.5 135.29,-288 125.29,-284.5 125.29,-291.5" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node11">
-
-<g id="a_node11"><a href="./#trim-path" title="Trim Path">
-<polygon fill="none" points="68,-252 14,-252 14,-216 68,-216 68,-252" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-231.5">Trim Path</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge9">
-
-<path d="M68.22,-245.85C85.19,-253.52 107.49,-263.59 126.03,-271.97" fill="none" stroke="black"></path>
-<polygon fill="none" points="124.78,-275.25 135.34,-276.18 127.66,-268.87 124.78,-275.25" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node12">
-
-<g id="a_node12"><a href="./#transform" title="Transform Shape">
-<polygon fill="none" points="207,-252 118,-252 118,-216 207,-216 207,-252" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="162.5" y="-231.5">Transform Shape</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge11">
-
-<path d="M204.46,-252.13C214.32,-256.49 224.96,-261.21 235.19,-265.73" fill="none" stroke="black"></path>
-<polygon fill="none" points="233.88,-268.98 244.44,-269.82 236.71,-262.58 233.88,-268.98" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node13">
-
-<g id="a_node13"><a href="./#shape-style" title="Shape Style">
-<polygon fill="none" points="193,-144 132,-144 132,-108 193,-108 193,-144" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="162.5" y="-123.5">Shape Style</text>
-</a>
-</g>
-</g>
-
-<g class="edge" id="edge16">
-
-<path d="M177.26,-144.27C198.77,-172.83 240.47,-228.2 265.36,-261.26" fill="none" stroke="black"></path>
-<polygon fill="none" points="262.79,-263.67 271.61,-269.55 268.39,-259.46 262.79,-263.67" stroke="black"></polygon>
-</g>
-
-<g class="node" id="node14">
-
-<g id="a_node14"><a href="./#fill" title="Fill">
-<polygon fill="none" points="68,-198 14,-198 14,-162 68,-162 68,-198" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-177.5">Fill</text>
+<g id="a_node9"><a href="./#shape-style" title="Shape Style">
+<polygon fill="none" points="202,-360 141,-360 141,-324 202,-324 202,-360" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="171.5" y="-339.5">Shape Style</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge12">
 
-<path d="M68.22,-168.15C84.11,-160.97 104.67,-151.68 122.44,-143.65" fill="none" stroke="black"></path>
-<polygon fill="none" points="124.3,-146.65 131.98,-139.34 121.42,-140.27 124.3,-146.65" stroke="black"></polygon>
+<path d="M202.03,-355.07C214.76,-360.71 230,-367.45 244.41,-373.83" fill="none" stroke="black"></path>
+<polygon fill="none" points="243.16,-377.1 253.72,-377.95 245.99,-370.7 243.16,-377.1" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node10">
+
+<g id="a_node10"><a href="./#fill" title="Fill">
+<polygon fill="none" points="72.5,-414 18.5,-414 18.5,-378 72.5,-378 72.5,-414" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-393.5">Fill</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge8">
+
+<path d="M72.8,-384.55C89.83,-377.13 112.31,-367.34 131.41,-359.02" fill="none" stroke="black"></path>
+<polygon fill="none" points="132.99,-362.15 140.76,-354.95 130.19,-355.74 132.99,-362.15" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node11">
+
+<g id="a_node11"><a href="./#gradient-fill" title="Gradient">
+<polygon fill="none" points="72.5,-360 18.5,-360 18.5,-324 72.5,-324 72.5,-360" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-339.5">Gradient</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge9">
+
+<path d="M72.8,-342C89.59,-342 111.69,-342 130.62,-342" fill="none" stroke="black"></path>
+<polygon fill="none" points="130.76,-345.5 140.76,-342 130.76,-338.5 130.76,-345.5" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node12">
+
+<g id="a_node12"><a href="./#stroke" title="Stroke">
+<polygon fill="none" points="72.5,-306 18.5,-306 18.5,-270 72.5,-270 72.5,-306" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-285.5">Stroke</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge10">
+
+<path d="M72.8,-299.45C89.83,-306.87 112.31,-316.66 131.41,-324.98" fill="none" stroke="black"></path>
+<polygon fill="none" points="130.19,-328.26 140.76,-329.05 132.99,-321.85 130.19,-328.26" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node13">
+
+<g id="a_node13"><a href="./#gradient-stroke" title="Gradient Stroke">
+<polygon fill="none" points="86.5,-252 4.5,-252 4.5,-216 86.5,-216 86.5,-252" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-231.5">Gradient Stroke</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge11">
+
+<path d="M78.75,-252.24C82.98,-255.02 87.18,-257.97 91,-261 111.97,-277.62 133.06,-299.39 148.24,-316.18" fill="none" stroke="black"></path>
+<polygon fill="none" points="145.93,-318.84 155.2,-323.98 151.15,-314.18 145.93,-318.84" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node14">
+
+<g id="a_node14"><a href="./#shape" title="Shape">
+<polygon fill="none" points="198.5,-144 144.5,-144 144.5,-108 198.5,-108 198.5,-144" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="171.5" y="-123.5">Shape</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge17">
+
+<path d="M180.69,-144.13C201.66,-190.54 257.35,-313.77 282.21,-368.8" fill="none" stroke="black"></path>
+<polygon fill="none" points="279.03,-370.27 286.34,-377.94 285.41,-367.39 279.03,-370.27" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node15">
 
-<g id="a_node15"><a href="./#stroke" title="Stroke">
-<polygon fill="none" points="68,-144 14,-144 14,-108 68,-108 68,-144" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-123.5">Stroke</text>
+<g id="a_node15"><a href="./#polystar" title="PolyStar">
+<polygon fill="none" points="72.5,-198 18.5,-198 18.5,-162 72.5,-162 72.5,-198" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-177.5">PolyStar</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge13">
 
-<path d="M68.22,-126C83.96,-126 104.29,-126 121.94,-126" fill="none" stroke="black"></path>
-<polygon fill="none" points="121.98,-129.5 131.98,-126 121.98,-122.5 121.98,-129.5" stroke="black"></polygon>
+<path d="M72.8,-168.55C90.88,-160.67 115.11,-150.12 134.92,-141.49" fill="none" stroke="black"></path>
+<polygon fill="none" points="136.47,-144.64 144.24,-137.44 133.67,-138.22 136.47,-144.64" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node16">
 
-<g id="a_node16"><a href="./#gradient-fill" title="Gradient">
-<polygon fill="none" points="68,-90 14,-90 14,-54 68,-54 68,-90" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-69.5">Gradient</text>
+<g id="a_node16"><a href="./#ellipse" title="Ellipse">
+<polygon fill="none" points="72.5,-144 18.5,-144 18.5,-108 72.5,-108 72.5,-144" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-123.5">Ellipse</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge14">
 
-<path d="M68.22,-83.85C84.11,-91.03 104.67,-100.32 122.44,-108.35" fill="none" stroke="black"></path>
-<polygon fill="none" points="121.42,-111.73 131.98,-112.66 124.3,-105.35 121.42,-111.73" stroke="black"></polygon>
+<path d="M72.8,-126C90.63,-126 114.45,-126 134.11,-126" fill="none" stroke="black"></path>
+<polygon fill="none" points="134.24,-129.5 144.24,-126 134.24,-122.5 134.24,-129.5" stroke="black"></polygon>
 </g>
 
 <g class="node" id="node17">
 
-<g id="a_node17"><a href="./#gradient-stroke" title="Gradient Stroke">
-<polygon fill="none" points="82,-36 0,-36 0,0 82,0 82,-36" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-15.5">Gradient Stroke</text>
+<g id="a_node17"><a href="./#rectangle" title="Rectangle">
+<polygon fill="none" points="72.5,-90 18.5,-90 18.5,-54 72.5,-54 72.5,-90" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-69.5">Rectangle</text>
 </a>
 </g>
 </g>
 
 <g class="edge" id="edge15">
 
-<path d="M70.49,-36.19C74.45,-39.02 78.39,-42 82,-45 102.43,-62.01 123.41,-83.59 138.68,-100.2" fill="none" stroke="black"></path>
-<polygon fill="none" points="136.38,-102.86 145.69,-107.91 141.56,-98.15 136.38,-102.86" stroke="black"></polygon>
+<path d="M72.8,-83.45C90.88,-91.33 115.11,-101.88 134.92,-110.51" fill="none" stroke="black"></path>
+<polygon fill="none" points="133.67,-113.78 144.24,-114.56 136.47,-107.36 133.67,-113.78" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node18">
+
+<g id="a_node18"><a href="./#path" title="Path">
+<polygon fill="none" points="72.5,-36 18.5,-36 18.5,0 72.5,0 72.5,-36" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-15.5">Path</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge16">
+
+<path d="M72.64,-32.37C78.86,-36.19 85.33,-40.51 91,-45 111.97,-61.62 133.06,-83.39 148.24,-100.18" fill="none" stroke="black"></path>
+<polygon fill="none" points="145.93,-102.84 155.2,-107.98 151.15,-98.18 145.93,-102.84" stroke="black"></polygon>
 </g>
 </g>
 </svg></details>
@@ -779,6 +795,10 @@ use this constant, a similar approximation, or elliptical arc drawing primitives
 <td><code>'pb'</code></td>
 <td><a href="./#pucker-bloat">Pucker Bloat</a></td>
 </tr>
+<tr>
+<td><code>'rd'</code></td>
+<td><a href="./#rounded-corners">Rounded Corners</a></td>
+</tr>
 </tbody>
 </table>
 </p>
@@ -832,9 +852,9 @@ use this constant, a similar approximation, or elliptical arc drawing primitives
 
 <g class="node" id="node4">
 
-<g id="a_node4"><a href="./#rectangle" title="Rectangle">
+<g id="a_node4"><a href="./#polystar" title="PolyStar">
 <polygon fill="none" points="54,-198 0,-198 0,-162 54,-162 54,-198" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-177.5">Rectangle</text>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-177.5">PolyStar</text>
 </a>
 </g>
 </g>
@@ -847,9 +867,9 @@ use this constant, a similar approximation, or elliptical arc drawing primitives
 
 <g class="node" id="node5">
 
-<g id="a_node5"><a href="./#polystar" title="PolyStar">
+<g id="a_node5"><a href="./#ellipse" title="Ellipse">
 <polygon fill="none" points="54,-144 0,-144 0,-108 54,-108 54,-144" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-123.5">PolyStar</text>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-123.5">Ellipse</text>
 </a>
 </g>
 </g>
@@ -862,9 +882,9 @@ use this constant, a similar approximation, or elliptical arc drawing primitives
 
 <g class="node" id="node6">
 
-<g id="a_node6"><a href="./#ellipse" title="Ellipse">
+<g id="a_node6"><a href="./#rectangle" title="Rectangle">
 <polygon fill="none" points="54,-90 0,-90 0,-54 54,-54 54,-90" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-69.5">Ellipse</text>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="27" y="-69.5">Rectangle</text>
 </a>
 </g>
 </g>
@@ -2507,9 +2527,9 @@ the last item in the <code>it</code> array.</p>
 
 <g class="node" id="node5">
 
-<g id="a_node5"><a href="./#stroke" title="Stroke">
+<g id="a_node5"><a href="./#gradient-fill" title="Gradient">
 <polygon fill="none" points="68,-144 14,-144 14,-108 68,-108 68,-144" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-123.5">Stroke</text>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-123.5">Gradient</text>
 </a>
 </g>
 </g>
@@ -2522,9 +2542,9 @@ the last item in the <code>it</code> array.</p>
 
 <g class="node" id="node6">
 
-<g id="a_node6"><a href="./#gradient-fill" title="Gradient">
+<g id="a_node6"><a href="./#stroke" title="Stroke">
 <polygon fill="none" points="68,-90 14,-90 14,-54 68,-54 68,-90" stroke="black"></polygon>
-<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-69.5">Gradient</text>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="41" y="-69.5">Stroke</text>
 </a>
 </g>
 </g>
@@ -4169,6 +4189,171 @@ as following each other in render order.  <math display="inline" xmlns="http://w
 length created by concatenating each shape.</p>
 </li>
 </ul>
+<h3 id="rounded-corners">Rounded Corners</h3>
+<p></p>
+<p><span>Rounds corners of other shapes</span></p>
+<div>
+<details>
+<summary>Composition Diagram for Rounded Corners</summary>
+<svg _xmlns="http://www.w3.org/2000/svg" height="44pt" viewBox="0.00 0.00 415.00 44.00" width="415pt">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 40)">
+
+<polygon fill="white" points="-4,4 -4,-40 411,-40 411,4 -4,4" stroke="transparent"></polygon>
+
+<g class="node current" id="node1">
+
+<polygon fill="none" points="91,-36 0,-36 0,0 91,0 91,-36" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="45.5" y="-15.5">Rounded Corners</text>
+</g>
+
+<g class="node" id="node2">
+
+<g id="a_node2"><a href="./#modifier" title="Modifier">
+<polygon fill="none" points="181,-36 127,-36 127,0 181,0 181,-36" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="154" y="-15.5">Modifier</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge3">
+
+<path d="M91.05,-18C99.63,-18 108.51,-18 116.78,-18" fill="none" stroke="black"></path>
+<polygon fill="none" points="116.87,-21.5 126.87,-18 116.87,-14.5 116.87,-21.5" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node3">
+
+<g id="a_node3"><a href="./#graphic-element" title="Graphic Element">
+<polygon fill="none" points="304,-36 217,-36 217,0 304,0 304,-36" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="260.5" y="-15.5">Graphic Element</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge2">
+
+<path d="M181.1,-18C188.83,-18 197.6,-18 206.4,-18" fill="none" stroke="black"></path>
+<polygon fill="none" points="206.68,-21.5 216.68,-18 206.68,-14.5 206.68,-21.5" stroke="black"></polygon>
+</g>
+
+<g class="node" id="node4">
+
+<g id="a_node4"><a href="../helpers/#visual-object" title="Visual Object">
+<polygon fill="none" points="407,-36 340,-36 340,0 407,0 407,-36" stroke="black"></polygon>
+<text _ff="Times,serif" font-size="10.00" text-anchor="middle" x="373.5" y="-15.5">Visual Object</text>
+</a>
+</g>
+</g>
+
+<g class="edge" id="edge1">
+
+<path d="M304.1,-18C312.53,-18 321.38,-18 329.82,-18" fill="none" stroke="black"></path>
+<polygon fill="none" points="329.84,-21.5 339.84,-18 329.84,-14.5 329.84,-21.5" stroke="black"></polygon>
+</g>
+</g>
+</svg></details>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Title</th>
+<th>Description <a class="schema-link" href="../schema/#/$defs/shapes/rounded-corners" title="View Schema"><i class="fas fa-file-code"></i></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nm</code></td>
+<td><code>string</code></td>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>Human readable name, as seen from editors and the like</p>
+</td>
+</tr>
+<tr>
+<td><code>hd</code></td>
+<td><code>boolean</code></td>
+<td>
+<p>Hidden</p>
+</td>
+<td>
+<p>Whether the shape is hidden</p>
+</td>
+</tr>
+<tr>
+<td><code>ty</code></td>
+<td><code>string</code> = <code>'rd'</code></td>
+<td>
+<p>Shape Type</p>
+</td>
+<td>
+<p>Shape Type</p>
+</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td><a href="../properties/#scalar-property">Scalar</a></td>
+<td>
+<p>Roundness</p>
+</td>
+<td>
+<p>Roundness</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This modifier looks at the underlying shape, at each vertex it checks if the two
+segments before and after the vertex are linear. A segment is linear if the
+tangents are lay on the line between the two vertices. Implementations <strong class="bcp14">MUST</strong>
+take into account floating point inaccuracies when making this determination.
+If both bezier segmets around the vertex are linear, the initial
+vertex is replaced by two vertices <code>r</code> distance away from the original along
+the corresponding segment. These new vertices <strong class="bcp14">MUST</strong> merge with existing vertices
+if the line segments are shorter than the <code>r</code> distance. 
+The new vertices have the tangents towards the old initial vertex whose lengths
+are the distance to said vertex multiplied by the elliptical constant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>E</mi><mi>t</mi></msub></mrow></math>.</p>
+<p>The first and last vertex in an open path <strong class="bcp14">MUST NOT</strong> be affected.</p>
+<p>If <code>r</code> is 0, the modifier <strong class="bcp14">MUST</strong> keep the target shapes unchanged.</p>
+<p>Follows a guide on how the modifier works:</p>
+<p><img alt="Rounded corners rendering guide" src="../../static/img/rounded-corners-guide.svg" /></p>
+<p>Note that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>a</mi><mo>&#x02212;</mo><msub><mi>v</mi><mi>i</mi></msub></mrow></math> is generally equal to <code>r</code> but it might not be in the case
+where the line segment is shorter than <code>r</code>.</p>
+<div class="playground print-site-plugin-ignore">
+<table class="table-plain" style="width: 100%">
+<tr>
+<td style="white-space: pre"><label>Roundness</label> </td>
+<td style="width: 100%"><input autocomplete="off" data-lottie-input="29" max="100" min="0" name="Roundness" oninput="lottie_player_29.reload();document.getElementById('playground_29_1_span').innerText = event.target.value;" title="Roundness" type="range" value="50" />
+    <span id="playground_29_1_span">50</span></td>
+</tr>
+</table>
+<div class="playground-columns">
+<div class="animation-container animation-container-alpha">
+<div id="lottie_target_29"></div>
+</div>
+<div class="json-parent" id="playground_29_2_parent">
+<pre><code class="language-json hljs" id="playground_29_2">
+</code></pre>
+</div>
+<script>
+        var lottie_player_29 = new PlaygroundPlayer(
+            29,
+            'playground_29_2',
+            'lottie_target_29',
+            {"v": "5.5.7", "ip": 0, "op": 180, "nm": "Animation", "mn": "{8f1618e3-6f83-4531-8f65-07dd4b68ee2e}", "fr": 60, "w": 512, "h": 512, "assets": [], "layers": [{"ddd": 0, "ty": 4, "ind": 0, "st": 0, "ip": 0, "op": 180, "nm": "Layer", "mn": "{85f37d8b-1792-4a4f-82d2-1b3b6d829c07}", "ks": {"a": {"a": 0, "k": [256, 256]}, "p": {"a": 0, "k": [256, 256]}, "s": {"a": 0, "k": [100, 100]}, "r": {"a": 0, "k": 0}, "o": {"a": 0, "k": 100}}, "shapes": [{"ty": "gr", "nm": "PolyStar", "mn": "{9199543e-3552-4e51-a802-623f2a4a2ca1}", "it": [{"ty": "sr", "nm": "PolyStar", "mn": "{57cff206-c227-4a14-a679-195157be886b}", "p": {"a": 0, "k": [256, 256]}, "or": {"a": 0, "k": 222.72242736816406}, "ir": {"a": 0, "k": 111.36121368408203}, "r": {"a": 0, "k": 358.67291259765625}, "pt": {"a": 0, "k": 5}, "sy": 1, "os": {"a": 0, "k": 0}, "is": {"a": 0, "k": 0}}, {"ty": "rd", "nm": "Rounded Corners", "r": {"a": 0, "k": 50}}, {"ty": "st", "nm": "Stroke", "mn": "{0930ce27-c8f9-4371-b0cf-111a859abfaf}", "o": {"a": 0, "k": 100}, "c": {"a": 0, "k": [1, 0.9803921568627451, 0.2823529411764706]}, "lc": 2, "lj": 2, "ml": 0, "w": {"a": 0, "k": 30}}, {"ty": "fl", "hd": true, "nm": "Fill", "mn": "{a1bcc159-6916-4718-841d-a99140c0e74b}", "o": {"a": 0, "k": 100}, "c": {"a": 0, "k": [1, 0.9803921568627451, 0.2823529411764706]}, "r": 1}, {"ty": "tr", "a": {"a": 0, "k": [249.3134328358209, 254.47164179104476]}, "p": {"a": 0, "k": [249.3134328358209, 254.47164179104476]}, "s": {"a": 0, "k": [100, 100]}, "r": {"a": 0, "k": 0}, "o": {"a": 0, "k": 100}}]}]}], "meta": {"g": "Glaxnimate 0.4.6-26-g7b05e75c"}},
+            function (lottie, data)
+            {
+                
+    lottie.layers[0].shapes[0].it[1].r.k = data["Roundness"];
+    this.json_viewer_contents = lottie.layers[0].shapes[0].it[1];
+            },
+            {}
+        );
+        </script>
+</div>
+</div>
 <h3 id="pucker-bloat">Pucker / Bloat</h3>
 <p></p>
 <p><span>Interpolates bezier vertices towards the center of the shape, and tangent handles away from it (or vice-versa)</span></p>
@@ -4293,23 +4478,23 @@ When <code>a</code> is negative the vertices are pushed away from the center wit
 <table class="table-plain" style="width: 100%">
 <tr>
 <td style="white-space: pre"><label>Amount</label> </td>
-<td style="width: 100%"><input autocomplete="off" data-lottie-input="29" max="100" min="-100" name="Amount" oninput="lottie_player_29.reload();document.getElementById('playground_29_1_span').innerText = event.target.value;" title="Amount" type="range" value="50" />
-    <span id="playground_29_1_span">50</span></td>
+<td style="width: 100%"><input autocomplete="off" data-lottie-input="30" max="100" min="-100" name="Amount" oninput="lottie_player_30.reload();document.getElementById('playground_30_1_span').innerText = event.target.value;" title="Amount" type="range" value="50" />
+    <span id="playground_30_1_span">50</span></td>
 </tr>
 </table>
 <div class="playground-columns">
 <div class="animation-container animation-container-alpha">
-<div id="lottie_target_29"></div>
+<div id="lottie_target_30"></div>
 </div>
-<div class="json-parent" id="playground_29_2_parent">
-<pre><code class="language-json hljs" id="playground_29_2">
+<div class="json-parent" id="playground_30_2_parent">
+<pre><code class="language-json hljs" id="playground_30_2">
 </code></pre>
 </div>
 <script>
-        var lottie_player_29 = new PlaygroundPlayer(
-            29,
-            'playground_29_2',
-            'lottie_target_29',
+        var lottie_player_30 = new PlaygroundPlayer(
+            30,
+            'playground_30_2',
+            'lottie_target_30',
             {"v": "5.5.7", "ip": 0, "op": 180, "nm": "Animation", "mn": "{8f1618e3-6f83-4531-8f65-07dd4b68ee2e}", "fr": 60, "w": 512, "h": 512, "assets": [], "layers": [{"ddd": 0, "ty": 4, "ind": 0, "st": 0, "ip": 0, "op": 180, "nm": "Layer", "mn": "{85f37d8b-1792-4a4f-82d2-1b3b6d829c07}", "ks": {"a": {"a": 0, "k": [256, 256]}, "p": {"a": 0, "k": [256, 256]}, "s": {"a": 0, "k": [100, 100]}, "r": {"a": 0, "k": 0}, "o": {"a": 0, "k": 100}}, "shapes": [{"ty": "gr", "nm": "PolyStar", "mn": "{9199543e-3552-4e51-a802-623f2a4a2ca1}", "it": [{"ty": "sr", "nm": "PolyStar", "mn": "{57cff206-c227-4a14-a679-195157be886b}", "p": {"a": 0, "k": [256, 256]}, "or": {"a": 0, "k": 160}, "r": {"a": 0, "k": 0}, "pt": {"a": 0, "k": 5}, "sy": 2, "os": {"a": 0, "k": 0}}, {"ty": "pb", "nm": "Pucker / Bloat", "a": {"a": 0, "k": 50}}, {"ty": "st", "nm": "Stroke", "mn": "{0930ce27-c8f9-4371-b0cf-111a859abfaf}", "o": {"a": 0, "k": 100}, "c": {"a": 0, "k": [1, 0.9803921568627451, 0.2823529411764706]}, "lc": 2, "lj": 2, "ml": 0, "w": {"a": 0, "k": 30}}, {"ty": "fl", "hd": true, "nm": "Fill", "mn": "{a1bcc159-6916-4718-841d-a99140c0e74b}", "o": {"a": 0, "k": 100}, "c": {"a": 0, "k": [1, 0.9803921568627451, 0.2823529411764706]}, "r": 1}, {"ty": "tr", "a": {"a": 0, "k": [249.3134328358209, 254.47164179104476]}, "p": {"a": 0, "k": [249.3134328358209, 254.47164179104476]}, "s": {"a": 0, "k": [100, 100]}, "r": {"a": 0, "k": 0}, "o": {"a": 0, "k": 100}}]}]}], "meta": {"g": "Glaxnimate 0.4.6-26-g7b05e75c"}},
             function (lottie, data)
             {
